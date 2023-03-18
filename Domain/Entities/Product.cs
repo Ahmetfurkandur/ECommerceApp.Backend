@@ -1,0 +1,19 @@
+﻿using Domain.Common;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain.Entities
+{
+    public class Product : BaseEntity
+    {
+        public string ProductName { get; set; }
+        public int CategoryId { get; set; }
+        public decimal UnitPrice { get; set; }
+        public string QuantityPerUnit { get; set; }
+        public DiscountedEnum Discounted { get; set; }
+        public int UnitsInStock { get; set; }
+    }
+}
