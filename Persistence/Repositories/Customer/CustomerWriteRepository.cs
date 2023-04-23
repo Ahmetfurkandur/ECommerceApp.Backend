@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    public class CategoryWriteRepository : WriteRepository<Category>, ICategoryWriteRepository
+    public class CustomerWriteRepository : WriteRepository<Customer>, ICustomerWriteRepository
     {
-        public CategoryWriteRepository(ECommerceDbContext context) : base(context)
+        public CustomerWriteRepository(ECommerceDbContext context) : base(context)
         {
         }
     }

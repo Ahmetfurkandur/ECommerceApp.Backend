@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Persistence.Repositories
 {
-    public class ProductReadRepository : ReadRepository<Product>, IProductReadRepository
+    public class OrderReadRepository : ReadRepository<Order>, IOrderReadRepository
     {
-        public ProductReadRepository(ECommerceDbContext context) : base(context)
+        public OrderReadRepository(ECommerceDbContext context) : base(context)
         {
         }
     }

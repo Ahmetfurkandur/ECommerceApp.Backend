@@ -18,12 +18,10 @@ namespace Persistence
 
         public static void AddPersistenceServices(this IServiceCollection services)
         {
-            
-            services.AddSingleton<ICategoryReadRepository, CategoryReadRepository>();
-            services.AddSingleton<ICategoryWriteRepository, CategoryWriteRepository>();
+            services.AddDbContext<ECommerceDbContext>(options => options.UseSqlServer(Configuration.ConnectionString));
 
-            services.AddSingleton<IProductReadRepository, ProductReadRepository>();
-            services.AddSingleton<IProductWriteRepository, ProductWriteRepository>();
+            services.AddScoped<IProductReadRepository, ProductReadRepository>();
+            services.AddScoped<IProductWriteRepository, ProductWriteRepository>();
         }
     }
 }
