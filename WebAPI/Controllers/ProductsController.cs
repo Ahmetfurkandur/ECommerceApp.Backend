@@ -24,6 +24,7 @@ namespace WebAPI.Controllers
         [HttpGet("getAll")]
         public IActionResult GetAll([FromQuery]Pagination pagination)
         {
+            var totalCount = _productReadRepository.GetAll(false).Count();
             var products = _productReadRepository.GetAll(false).Skip(pagination.Page * pagination.Size).Take(pagination.Size).Select(p => new
             {
                 p.Id,
@@ -32,7 +33,11 @@ namespace WebAPI.Controllers
                 p.Price,
             });
 
-            return Ok();
+            return Ok(new PaginationResult()
+            {
+                Data = products,
+                TotalCount = totalCount
+            });
         }
 
         [HttpGet("get/{id}")]
